@@ -143,6 +143,9 @@ public class Process extends Thread {
 		 if (s == ProcessState.Terminated)
 		 {
 			 OperatingSystem.ProcessTable.remove(OperatingSystem.ProcessTable.indexOf(p));
+			 
+			 if( OperatingSystem.ProcessTable.size()>0)
+			 OperatingSystem.ProcessTable.get(0).start(); 
 		 }
 	}
 	 

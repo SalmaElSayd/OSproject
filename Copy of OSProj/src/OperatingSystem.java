@@ -79,17 +79,17 @@ public class OperatingSystem {
 		Process p = new Process(processID);
 		ProcessTable.add(p);
 		Process.setProcessState(p,ProcessState.Ready);
-//		if(ProcessTable.size()>1) {
-//		try {
-//			p.join();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		}
-//		else {
+		if(ProcessTable.size()>1) {
+		try {
+			p.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		}
+		else {
 			p.start();
-//		}
+		}
 	}
 	
 	public static void semPrintWait(Process p){
