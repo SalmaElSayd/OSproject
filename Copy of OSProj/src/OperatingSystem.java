@@ -75,7 +75,7 @@ public class OperatingSystem {
 		
 	}
 	
-	private static void createProcess(int processID){
+	private static void createProcess(int processID) throws InterruptedException{
 		Process p = new Process(processID);
 		ProcessTable.add(p);
 		Process.setProcessState(p,ProcessState.Ready);
@@ -197,9 +197,21 @@ public class OperatingSystem {
 		writeSem = true;
 
 	}
-	public static void main(String[] args) {
+	
+//	just trying
+//	public static void schedule() throws InterruptedException {
+//		int z=0;
+//		while(ProcessTable.size()>0) {
+//			for (int i=0;i<ProcessTable.size();i++) {
+//				if(i!=z%ProcessTable.size())
+//				ProcessTable.get(i).sleep(200*(ProcessTable.size()-1));
+//			}
+//			z++;
+//		}
+//	}
+	public static void main(String[] args) throws InterruptedException {
    		ProcessTable = new ArrayList<Thread>();
-
+//   		schedule();
 		createProcess(1);
 		createProcess(2);
 		createProcess(3);

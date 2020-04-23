@@ -35,16 +35,16 @@ public class Process extends Thread {
 		String fname = OperatingSystem.TakeInput();
 		OperatingSystem.semInputPost(this);
 	
-		OperatingSystem.semReadWait(this);
+//		OperatingSystem.semReadWait(this);
 		String data = OperatingSystem.readFile(fname+".txt");
-		OperatingSystem.semReadPost(this);
+//		OperatingSystem.semReadPost(this);
 		
 		OperatingSystem.semPrintWait(this);
 		OperatingSystem.printText(data);
 		OperatingSystem.semPrintPost(this);
 		
 		setProcessState(this,ProcessState.Terminated);
-		System.out.println("p1 over");
+//		System.out.println("p1 over");
 		}
 	
 	private void process2() {
@@ -65,12 +65,12 @@ public class Process extends Thread {
 		String data= OperatingSystem.TakeInput();
 		OperatingSystem.semInputPost(this);
 
-		OperatingSystem.semWriteWait(this);
+//		OperatingSystem.semWriteWait(this);
 		OperatingSystem.writefile(filename,data);
-		OperatingSystem.semWritePost(this);
+//		OperatingSystem.semWritePost(this);
 		
 		setProcessState(this,ProcessState.Terminated);
-		System.out.println("p2 over");
+//		System.out.println("p2 over");
 
 		}
 	private void process3() {
@@ -84,7 +84,7 @@ public class Process extends Thread {
 		}	
 		OperatingSystem.semPrintPost(this);
 		setProcessState(this,ProcessState.Terminated);
-		System.out.println("p3 over");
+//		System.out.println("p3 over");
 	
 	}
 	
@@ -100,7 +100,7 @@ public class Process extends Thread {
 		}	
 		OperatingSystem.semPrintPost(this);
 		setProcessState(this,ProcessState.Terminated);
-		System.out.println("p4 over");
+//		System.out.println("p4 over");
 }
 	private void process5() {
 		OperatingSystem.semPrintWait(this);
@@ -128,12 +128,12 @@ public class Process extends Thread {
 			data+=lowernbr++ +"\n";
 		}	
 		
-		OperatingSystem.semWriteWait(this);
+//		OperatingSystem.semWriteWait(this);
 		OperatingSystem.writefile("P5.txt", data);
-		OperatingSystem.semWritePost(this);
+//		OperatingSystem.semWritePost(this);
 
 		setProcessState(this,ProcessState.Terminated);
-		System.out.println("p5 over");
+//		System.out.println("p5 over");
 	}
 	
 
@@ -153,21 +153,5 @@ public class Process extends Thread {
 		 return p.status;
 	}
 	 
-//		public void semPrintWait(boolean printSem){
-//			System.out.println("waiting "+printSem);
-//			if(!printSem) {
-//				System.out.println("suspension");
-//				setProcessState(this, ProcessState.Waiting);
-//				this.suspend();		
-//			}else {
-//			printSem=false;}
-//			System.out.println("checkprint "+printSem);
-//
-//		}
-//		
-//		public void semPrintPost(boolean printSem){
-//			System.out.println("posting "+printSem);
-//			printSem = true;
-//			setProcessState(this, ProcessState.Ready);
-//		}
+
 }
